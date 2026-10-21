@@ -8,78 +8,88 @@
 * practices decisions and one of the four loops.
 */
 
-Random rng = new Random(4000);
-int choice = 0;
+// Random rng = new Random(4000);
+// int choice = 0;
 
 
 
-//A simple menu offering the programs choices.
-printMenu();
+// //A simple menu offering the programs choices.
+// printMenu();
 
 
-int choice = Convert.ToInt32(Console.ReadLine());
+// int choice = Convert.ToInt32(Console.ReadLine());
 
-if(choice == 1 || choice == 4)
-{
-    System.Console.WriteLine("=== Exercie 1: The Grade Checker ===");
-    System.Console.WriteLine("Please give me your grade value between 0 and 100 ");
-    int grade = Convert.ToInt32(Console.ReadLine());
-    if(grade <= 59)
-    {
-        System.Console.WriteLine($"{grade} is an F ");
-    }
-    if(grade <= 69 )
-    {
-        System.Console.WriteLine($"{grade} is a D ");
-    }
-    if(grade <= 79)
-    {
-        System.Console.WriteLine($"{grade} is an C ");
-    }
-    if(grade <= 89)
-    {
-        System.Console.WriteLine($"{grade} is a B ");
-    }
-    if(grade <= 100)
-    {
-        System.Console.WriteLine($"{grade} is an A ");
-    }
-}
-if(choice == 2 || choice == 4)
-{
+// if(choice == 1 || choice == 4)
+// {
+//     System.Console.WriteLine("=== Exercie 1: The Grade Checker ===");
+//     System.Console.WriteLine("Please give me your grade value between 0 and 100 ");
+//     int grade = Convert.ToInt32(Console.ReadLine());
+//     if(grade <= 59)
+//     {
+//         System.Console.WriteLine($"{grade} is an F ");
+//     }
+//     if(grade <= 69 )
+//     {
+//         System.Console.WriteLine($"{grade} is a D ");
+//     }
+//     if(grade <= 79)
+//     {
+//         System.Console.WriteLine($"{grade} is an C ");
+//     }
+//     if(grade <= 89)
+//     {
+//         System.Console.WriteLine($"{grade} is a B ");
+//     }
+//     if(grade <= 100)
+//     {
+//         System.Console.WriteLine($"{grade} is an A ");
+//     }
+// }
+// if(choice == 2 || choice == 4)
+// {
     System.Console.WriteLine("=== Exercise 3: The Score Report ===");
     System.Console.WriteLine("This is a calculator for some statistics on your grades. You will need to enter 5 scores.");
     int[] scores = new int[5];
 
     for(int i = 0; i < scores.Length; i++)
     {
-        System.Console.WriteLine($"Please enter the score for score {i}");
+        System.Console.WriteLine($"Please enter the score for score {i+1}");
         scores[i] = Convert.ToInt32(Console.ReadLine());
     }
 
     int total = scores.Sum();
     double average = (Convert.ToDouble(total) / scores.Length);
     int max = scores.Max();
-
+    int passing = 60;
+    int count = 0;
     foreach(int score in scores)
     {
-        System.Console.WriteLine($"Score: {score}");
+        if(score >= passing)
+        {
+            
+            count ++;
+        }
+    }
+    System.Console.WriteLine("=== Exercise 3: The Score Report ===");
+    for(int i = 0; i < scores.Length; i++)
+    {
+        System.Console.WriteLine($"Score {i+1}: {scores[i]}");
     }
     System.Console.WriteLine($"Scores entered: {scores.Length}");
     System.Console.WriteLine($"Total: {total}");
-    System.Console.WriteLine($"Average:{average}");
+    System.Console.WriteLine($"Average: {average}");
     System.Console.WriteLine($"Highest: {max}");
-    System.Console.WriteLine($"Passing: ");
-}
+    System.Console.WriteLine($"Passing: {count} out of {scores.Length} ");
+// }
 
-if(choice == 3 || choice == 4)
-{
-    System.Console.WriteLine("3");
-}
-else
-{
-    printMenu();
-}
+// if(choice == 3 || choice == 4)
+// {
+//     System.Console.WriteLine("3");
+// }
+// else
+// {
+//     printMenu();
+// }
 
 
 
