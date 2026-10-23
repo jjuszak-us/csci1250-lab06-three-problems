@@ -8,7 +8,7 @@
 * practices decisions and one of the four loops.
 */
 
-// Random rng = new Random(4000);
+Random rng = new Random(4000);
 // int choice = 0;
 
 
@@ -46,45 +46,80 @@
 //     }
 // }
 // if(choice == 2 || choice == 4)
-// {
-    System.Console.WriteLine("=== Exercise 3: The Score Report ===");
-    System.Console.WriteLine("This is a calculator for some statistics on your grades. You will need to enter 5 scores.");
-    int[] scores = new int[5];
+{
+    System.Console.WriteLine("=== Exercise 2: The Dice Table ===" );
+    char diceUserChoice; 
+    int rollcount = 0;
+    int wincount = 0;
+    do
+    {
+    rollcount++;
+    int rand1 = rng.Next(1,7);
+    int rand2 = rng.Next(1,7);
+    int total = rand1 + rand2;
 
-    for(int i = 0; i < scores.Length; i++)
+    if(rand1 == 1 && rand2 == 1)
     {
-        System.Console.WriteLine($"Please enter the score for score {i+1}");
-        scores[i] = Convert.ToInt32(Console.ReadLine());
+      System.Console.WriteLine($"Roll {rollcount}: {rand1} and {rand2}, total {total}. Snake Eyes. ");  
+    }
+    
+    else if(rand1 == rand2 && rand1 != 1)
+    {
+      System.Console.WriteLine($"Roll {rollcount}: {rand1} and {rand2}, total {total}. Doubles! ");  
     }
 
-    int total = scores.Sum();
-    double average = (Convert.ToDouble(total) / scores.Length);
-    int max = scores.Max();
-    int passing = 60;
-    int count = 0;
-    foreach(int score in scores)
+    else if(rand1 + rand2 == 7 || rand1 + rand2 == 11)
     {
-        if(score >= passing)
-        {
-            
-            count ++;
-        }
+      System.Console.WriteLine($"Roll {rollcount}: {rand1} and {rand2}, total {total}. A winner. "); 
+      wincount++; 
     }
-    System.Console.WriteLine("=== Exercise 3: The Score Report ===");
-    for(int i = 0; i < scores.Length; i++)
+
+    else
     {
-        System.Console.WriteLine($"Score {i+1}: {scores[i]}");
+    System.Console.WriteLine($"Roll {rollcount}: {rand1} and {rand2}, total {total} ");
     }
-    System.Console.WriteLine($"Scores entered: {scores.Length}");
-    System.Console.WriteLine($"Total: {total}");
-    System.Console.WriteLine($"Average: {average}");
-    System.Console.WriteLine($"Highest: {max}");
-    System.Console.WriteLine($"Passing: {count} out of {scores.Length} ");
-// }
+
+    System.Console.WriteLine("Roll again? (y/n)");
+    diceUserChoice = Convert.ToChar(Console.ReadLine().Trim().ToLower());
+
+    } while (diceUserChoice == 'y');
+    System.Console.WriteLine($"You rolled {rollcount} time and won {wincount}");
+}
 
 // if(choice == 3 || choice == 4)
 // {
-//     System.Console.WriteLine("3");
+//     System.Console.WriteLine("=== Exercise 3: The Score Report ===");
+//     System.Console.WriteLine("This is a calculator for some statistics on your grades. You will need to enter 5 scores.");
+//     int[] scores = new int[5];
+
+//     for(int i = 0; i < scores.Length; i++)
+//     {
+//         System.Console.WriteLine($"Please enter the score for score {i+1}");
+//         scores[i] = Convert.ToInt32(Console.ReadLine());
+//     }
+
+//     int total = scores.Sum();
+//     double average = (Convert.ToDouble(total) / scores.Length);
+//     int max = scores.Max();
+//     int passing = 60;
+//     int count = 0;
+//     foreach(int score in scores)
+//     {
+//         if(score >= passing)
+//         {
+//             count ++;
+//         }
+//     }
+//     System.Console.WriteLine("=== Exercise 3: The Score Report ===");
+//     for(int i = 0; i < scores.Length; i++)
+//     {
+//         System.Console.WriteLine($"Score {i+1}: {scores[i]}");
+//     }
+//     System.Console.WriteLine($"Scores entered: {scores.Length}");
+//     System.Console.WriteLine($"Total: {total}");
+//     System.Console.WriteLine($"Average: {average}");
+//     System.Console.WriteLine($"Highest: {max}");
+//     System.Console.WriteLine($"Passing: {count} out of {scores.Length} ");
 // }
 // else
 // {
@@ -114,3 +149,4 @@ static void printMenu()
     System.Console.WriteLine("5. Quit ");
     System.Console.WriteLine("Please choose 1-5 ");
 }
+
