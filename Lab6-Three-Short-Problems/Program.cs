@@ -63,7 +63,7 @@ if(choice == 2 || choice == 4)
     int rand1 = rng.Next(1,7);
     int rand2 = rng.Next(1,7);
     int total = rand1 + rand2;
-
+    //if statements to direct special combinations to display a secondary message
     if(rand1 == 1 && rand2 == 1)
     {
       System.Console.WriteLine($"Roll {rollcount}: {rand1} and {rand2}, total {total}. Snake Eyes. ");  
@@ -112,6 +112,7 @@ if(choice == 3 || choice == 4)
     //foreach loop for counts
     foreach(int score in scores)
     {
+        //if statement to increase count integer with every roll
         if(score >= passing)
         {
             count ++;
